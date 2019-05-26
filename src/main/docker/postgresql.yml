@@ -1,0 +1,11 @@
+version: '2'
+services:
+    helppopcorn-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/HelpPopcorn/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=HelpPopcorn
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
