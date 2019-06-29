@@ -154,7 +154,7 @@ public class Cinema implements Serializable {
             ", nome='" + getNome() + "'" +
             ", cidade='" + getCidade() + "'" +
             ", bairro='" + getBairro() + "'" +
-            ", quantidade sala='" + getQtdsala() + "'" +
+            ", quantidadeSala='" + getQtdsala() + "'" +
             "}";
     }
 }

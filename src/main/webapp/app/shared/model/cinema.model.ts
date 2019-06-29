@@ -3,9 +3,9 @@ export interface ICinema {
     nome?: string;
     cidade?: string;
     bairro?: string;
-    qtdSala?: number;
+    qtdSala?: any;
 }
 
 export class Cinema implements ICinema {
-    constructor(public id?: number, public nome?: string, public cidade?: string, public bairro?: string, public qtdSala?: number) {}
+    constructor(public id?: number, public nome?: string, public cidade?: string, public bairro?: string, public qtdSala?: any) {}
 }
