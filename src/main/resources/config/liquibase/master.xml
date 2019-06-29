@@ -5,6 +5,16 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190501200649_added_entity_Filme.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629013716_added_entity_Musica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629012925_added_entity_Cinema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629121252_added_entity_FilmeMusica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629144700_added_entity_FilmeCinema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190501201725_added_entity_Avaliacao.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+
+    <include file="config/liquibase/changelog/20190501201725_added_entity_constraints_Avaliacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629093300_added_constraints_FilmeMusica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190629145000_constraints_FilmeCinema.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
