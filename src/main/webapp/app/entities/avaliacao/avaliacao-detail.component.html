@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avaliacao">
+            <h2><span>Avaliacao</span> {{avaliacao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Comentario</span></dt>
+                <dd>
+                    <span>{{avaliacao.comentario}}</span>
+                </dd>
+                <dd>
+                    <span>{{avaliacao.nomeUsuario}}</span>
+                </dd>
+                <dd>
+                    <span>{{avaliacao.emailUssuario}}</span>
+                </dd>
+                <dt><span>Nota</span></dt>
+                <dd>
+                    <span>{{avaliacao.nota}}</span>
+                </dd>
+                <dt><span>Id Filme</span></dt>
+                <dd>
+                    <div *ngIf="avaliacao.id_filme">
+                        <a [routerLink]="['/filme', avaliacao.id_filme?.id, 'view']">{{avaliacao.id_filme?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avaliacao', avaliacao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

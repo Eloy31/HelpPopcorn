@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-avaliacao-heading">Create or edit a Avaliacao</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!avaliacao.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="avaliacao.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comentario">Comentario</label>
+                    <input type="text" class="form-control" name="comentario" id="field_comentario"
+                        [(ngModel)]="avaliacao.comentario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="avaliacao.nomeUsuario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="avaliacao.emailUsuario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nota">Nota</label>
+                    <input type="number" class="form-control" name="nota" id="field_nota"
+                        [(ngModel)]="avaliacao.nota" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_id_filme">Id Filme</label>
+                    <select class="form-control" id="field_id_filme" name="id_filme" [(ngModel)]="avaliacao.id_filme" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="filmeOption.id === avaliacao.id_filme?.id ? avaliacao.id_filme : filmeOption" *ngFor="let filmeOption of filmes; trackBy: trackFilmeById">{{filmeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
