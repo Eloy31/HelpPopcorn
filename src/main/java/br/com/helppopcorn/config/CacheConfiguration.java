@@ -40,6 +40,16 @@ public class CacheConfiguration {
             cm.createCache(br.com.helppopcorn.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(br.com.helppopcorn.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(br.com.helppopcorn.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Filme.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Avaliacao.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Cinema.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.FilmeCinema.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.FilmeMusica.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Musica.class.getName(), jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Filme.class.getName() + ".filmeMusicas", jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Musica.class.getName() + ".filmeMusicas", jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Filme.class.getName() + ".filmeCinemas", jcacheConfiguration);
+            cm.createCache(br.com.helppopcorn.domain.Cinema.class.getName() + ".filmeCinemas", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
