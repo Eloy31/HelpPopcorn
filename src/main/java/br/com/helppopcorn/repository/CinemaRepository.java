@@ -17,4 +17,7 @@ import org.springframework.data.repository.query.Param;
 public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     @Query("select c from Cinema c where c.id in (?1)")
     Cinema findByIdSimples(Long cinemaId);
+
+    @Query("select c from Cinema c where LOWER(c.cidade) like LOWER(concat('%',:cidade,'%'))")
+    Page buscarPorCidade(@Param("cidade") String cidade, Pageable pageable);
 }

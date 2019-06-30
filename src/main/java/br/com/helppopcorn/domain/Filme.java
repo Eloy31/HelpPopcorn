@@ -26,8 +26,8 @@ public class Filme implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "nome")
+    private String nome;
 
     @Column(name = "descricao")
     private String descricao;
@@ -54,15 +54,15 @@ public class Filme implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
-    public Filme name(String name) {
-        this.name = name;
+    public Filme nome(String nome) {
+        this.nome = nome;
         return this;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     public String getDescricao() {
         return descricao;
@@ -170,7 +170,7 @@ public class Filme implements Serializable {
     public String toString() {
         return "Filme{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
+            ", nome='" + getNome() + "'" +
             ", descricao='" + getDescricao() + "'" +
             ", ano=" + getAno() +
             ", estudio='" + getEstudio() + "'" +

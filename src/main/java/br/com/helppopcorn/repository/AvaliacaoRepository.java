@@ -21,4 +21,6 @@ public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Long> {
     @Query("select a from Avaliacao a where a.id in (?1)")
     Avaliacao findByIdSimples(Long avaliacaoId);
 
+    @Query("select a from Avaliacao a where a.id_filme in (?1) order by a.emailUsuario")
+    List<Avaliacao> findByAvaliacaoFilme(Long filmeId);
 }

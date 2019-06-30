@@ -15,6 +15,9 @@ import org.springframework.data.repository.query.Param;
 @SuppressWarnings("unused")
 @Repository
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
+    @Query("select f from Filme f where LOWER(f.nome) like LOWER(concat('%',:nome,'%'))")
+    Page buscarPorNome(@Param("nome") String nome, Pageable pageable);
+
     @Query("select f from Filme f where f.id in (?1)")
     Filme findByIdSimples(Long filmeId);
 }
