@@ -19,6 +19,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'musica',
                 loadChildren: './musica/musica.module#HelpPopcornMusicaModule'
+            },
+            {
+                path: 'filme-musica',
+                loadChildren: './filme-musica/filme-musica.module#HelpPopcornFilmeMusicaModule'
             }
         ])
     ],
