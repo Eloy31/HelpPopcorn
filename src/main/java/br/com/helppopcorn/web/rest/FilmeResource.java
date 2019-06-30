@@ -85,10 +85,17 @@ public class FilmeResource {
      */
     @GetMapping("/filmes")
     public ResponseEntity<List<Filme>> getAllFilmes(Pageable pageable) {
-        log.debug("REST request to get a page of Filmes");
+        log.debug("REST request to get a page of filmes");
         Page<Filme> page = filmeRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/filmes");
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/filmes/nomeFiltro")
+    public ResponseEntity<List<Filme>> getByNome(@RequestParam(value = "nome") String nome, Pageable pageable) {
+        Page<Filme> page = filmeRepository.buscarPorNome(nome, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/filmes");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

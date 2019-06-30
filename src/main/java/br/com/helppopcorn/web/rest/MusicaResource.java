@@ -8,6 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import br.com.helppopcorn.web.rest.util.PaginationUtil;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -72,15 +77,32 @@ public class MusicaResource {
             .body(result);
     }
 
-    /**
+ /**
      * GET  /musicas : get all the musicas.
      *
+     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of musicas in body
      */
     @GetMapping("/musicas")
-    public List<Musica> getAllMusicas() {
-        log.debug("REST request to get all musicas");
-        return musicaRepository.findAll();
+    public ResponseEntity<List<Musica>> getAllMusicas(Pageable pageable) {
+        log.debug("REST request to get a page of musicas");
+        Page<Musica> page = musicaRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/musicas");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/musicas/nomeFiltro")
+    public ResponseEntity<List<Musica>> getByNome(@RequestParam(value = "nome") String nome, Pageable pageable) {
+        Page<Musica> page = musicaRepository.buscarPorNome(nome, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/musicas");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/musicas/autorFiltro")
+    public ResponseEntity<List<Musica>> getByAutor(@RequestParam(value = "autor") String autor, Pageable pageable) {
+        Page<Musica> page = musicaRepository.buscarPorAutor(autor, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/musicas");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
