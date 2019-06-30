@@ -91,6 +91,19 @@ public class AvaliacaoResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/avaliacoes/agruparFilme")
+    public List<Avaliacao> getByAvaliacaoFilme(Long filmeId) {
+        log.debug("REST request to get all avaliacao");
+        return  avaliacaoRepository.findByAvaliacaoFilme(filmeId);
+    }
+
+    @GetMapping("/avaliacoes/emailFiltro")
+    public ResponseEntity<List<Avaliacao>> getByEmail(@RequestParam(value = "emailUsuario") String emailUsuario, Pageable pageable) {
+        Page<Avaliacao> page = avaliacaoRepository.buscarPorEmail(emailUsuario, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/avaliacoes");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
     /**
      * GET  /avaliacaos/:id : get the "id" avaliacao.
      *

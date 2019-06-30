@@ -6,8 +6,13 @@ import br.com.helppopcorn.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import br.com.helppopcorn.web.rest.util.PaginationUtil;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -75,12 +80,22 @@ public class CinemaResource {
     /**
      * GET  /cinemas : get all the cinemas.
      *
+     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of cinemas in body
      */
     @GetMapping("/cinemas")
-    public List<Cinema> getAllCinemas() {
-        log.debug("REST request to get all Cinemas");
-        return cinemaRepository.findAll();
+    public ResponseEntity<List<Cinema>> getAllCinemas(Pageable pageable) {
+        log.debug("REST request to get a page of cinemas");
+        Page<Cinema> page = cinemaRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cinemas");
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/cinemas/cidadeFiltro")
+    public ResponseEntity<List<Cinema>> getByCidade(@RequestParam(value = "cidade") String cidade, Pageable pageable) {
+        Page<Cinema> page = cinemaRepository.buscarPorCidade(cidade, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/cinemas");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
