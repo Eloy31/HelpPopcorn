@@ -38,14 +38,6 @@ public class Filme implements Serializable {
     @Column(name = "estudio")
     private String estudio;
 
-    @OneToMany(mappedBy = "filme")
-    @Cache (usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set <FilmeMusica> filmeMusicas = new HashSet<>();
-
-    @OneToMany(mappedBy = "filme")
-    @Cache (usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set <FilmeCinema> filmeCinemas = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     /*----------------------------Atributos do filme---------------------------------- */
     public Long getId() {
@@ -96,53 +88,7 @@ public class Filme implements Serializable {
     }
     /*---------------------------------------------------------------------*/
     
-    /*-----------------------------Filme_musica----------------------------*/
-    public Set<FilmeMusica> getFilmeMusicas() {
-        return filmeMusicas;
-    }
-    public Filme filmeMusicas(Set<FilmeMusica> filmeMusicas) {
-        this.filmeMusicas = filmeMusicas;
-        return this;
-    }
-    public Filme addFilmeMusicas(FilmeMusica filmeMusica) {
-        this.filmeMusicas.add(filmeMusica);
-        filmeMusica.setFilme(this);
-        return this;
-    }
-    public Filme removeFilmeMusica(FilmeMusica filmeMusica) {
-        this.filmeMusicas.remove(filmeMusica);
-        filmeMusica.setFilme(null);
-        return this;
-    }
 
-    public void setFilmeMusicas(Set<FilmeMusica> filmeMusicas){
-        this.filmeMusicas = filmeMusicas;
-    }
-    /*---------------------------------------------------------------------*/
-
-    /*-----------------------------Filme_cinema----------------------------*/
-    public Set<FilmeCinema> getFilmeCinemas() {
-        return filmeCinemas;
-    }
-    public Filme filmeCinemas(Set<FilmeCinema> filmeCinemas) {
-        this.filmeCinemas = filmeCinemas;
-        return this;
-    }
-    public Filme addFilmeCinemas(FilmeCinema filmeCinema) {
-        this.filmeCinemas.add(filmeCinema);
-        filmeCinema.setFilme(this);
-        return this;
-    }
-    public Filme removeFilmeCinema(FilmeCinema filmeCinema) {
-        this.filmeCinemas.remove(filmeCinema);
-        filmeCinema.setFilme(null);
-        return this;
-    }
-
-    public void setFilmeCinemas(Set<FilmeCinema> filmeCinemas){
-        this.filmeCinemas = filmeCinemas;
-    }
-    /*---------------------------------------------------------------------*/
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

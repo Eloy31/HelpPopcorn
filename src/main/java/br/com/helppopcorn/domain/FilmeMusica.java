@@ -1,17 +1,9 @@
 package br.com.helppopcorn.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
-
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,12 +22,10 @@ public class FilmeMusica implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties("filmeMusica")
-    private Filme filme;
+    private Filme id_filme;
 
     @ManyToOne
-    @JsonIgnoreProperties("filmeMusica")
-    private Musica musica;
+    private Musica id_musica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -47,32 +37,32 @@ public class FilmeMusica implements Serializable {
     }
 
     /*-------------------------Filme--------------------------*/
-    public Filme getFilme() {
-        return filme;
+    public Filme getId_filme() {
+        return id_filme;
     }
 
-    public FilmeMusica filmeMusica(Filme filme) {
-        this.filme = filme;
+    public FilmeMusica id_filme(Filme id_filme) {
+        this.id_filme = id_filme;
         return this;
     }
 
-    public void setFilme (Filme filme) {
-        this.filme = filme;
+    public void setId_filme(Filme id_filme) {
+        this.id_filme = id_filme;
     }
     /*-------------------------------------------------------*/
 
     /*-------------------------Musica--------------------------*/
-      public Musica getMusica() {
-        return musica;
+      public Musica getId_musica() {
+        return id_musica;
     }
 
-    public FilmeMusica filmeMusica(Musica musica) {
-        this.musica = musica;
+    public FilmeMusica id_musica(Musica id_musica) {
+        this.id_musica = id_musica;
         return this;
     }
 
-    public void setMusica (Musica musica) {
-        this.musica = musica;
+    public void setId_musica (Musica id_musica) {
+        this.id_musica = id_musica;
     }
     /*-------------------------------------------------------*/
     

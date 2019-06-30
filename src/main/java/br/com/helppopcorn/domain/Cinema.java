@@ -102,29 +102,7 @@ public class Cinema implements Serializable {
     public void setQtdSala(Integer qtdSala) {
         this.qtdSala = qtdSala;
     }
-     /*-----------------------------Filme_cinema----------------------------*/
-     public Set<FilmeCinema> getFilmeCinemas() {
-        return filmeCinemas;
-    }
-    public Cinema filmeCinemas(Set<FilmeCinema> filmeCinemas) {
-        this.filmeCinemas = filmeCinemas;
-        return this;
-    }
-    public Cinema addFilmeCinemas(FilmeCinema filmeCinema) {
-        this.filmeCinemas.add(filmeCinema);
-        filmeCinema.setCinema(this);
-        return this;
-    }
-    public Cinema removeFilmeCinema(FilmeCinema filmeCinema) {
-        this.filmeCinemas.remove(filmeCinema);
-        filmeCinema.setFilme(null);
-        return this;
-    }
 
-    public void setFilmeCinemas(Set<FilmeCinema> filmeCinemas){
-        this.filmeCinemas = filmeCinemas;
-    }
-    /*---------------------------------------------------------------------*/
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

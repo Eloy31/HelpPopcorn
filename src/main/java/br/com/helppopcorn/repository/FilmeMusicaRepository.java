@@ -12,12 +12,12 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface FilmeMusicaRepository extends JpaRepository<FilmeMusica, Long> {
-    @Query("select fm from FilmeMusica fm where fm.filme.id in (?1) order by fm.musica.nome")
+    @Query("select fm from FilmeMusica fm where fm.id_filme in (?1)")
     List<FilmeMusica> findByFilmeID(Long filmeId);
 
-    @Query("select fm from FilmeMusica fm where fm.filme.id in (?1) and fm.musica.id in (?2)")
+    @Query("select fm from FilmeMusica fm where fm.id_filme in (?1) and fm.id_musica in (?2)")
     FilmeMusica findByFilmeMusicaID(Long filmeId, Long musicaId);
 
-    @Query("select fm from FilmeMusica fm where fm.musica.id  = ?1")
+    @Query("select fm from FilmeMusica fm where fm.id_musica  = (?1)")
     FilmeMusica findByMusicaID(Long musicaId);
 }

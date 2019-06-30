@@ -30,12 +30,10 @@ public class FilmeCinema implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties("filmeCinema")
-    private Filme filme;
+    private Filme id_filme;
 
     @ManyToOne
-    @JsonIgnoreProperties("filmeCinema")
-    private Cinema cinema;
+    private Cinema id_cinema;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -47,32 +45,32 @@ public class FilmeCinema implements Serializable {
     }
 
     /*-------------------------Filme--------------------------*/
-    public Filme getFilme() {
-        return filme;
+    public Filme getId_filme() {
+        return id_filme;
     }
 
-    public FilmeCinema filmeCinema(Filme filme) {
-        this.filme = filme;
+    public FilmeCinema id_filme(Filme id_filme) {
+        this.id_filme = id_filme;
         return this;
     }
 
-    public void setFilme (Filme filme) {
-        this.filme = filme;
+    public void setId_filme (Filme id_filme) {
+        this.id_filme = id_filme;
     }
     /*-------------------------------------------------------*/
 
     /*-------------------------Cinema--------------------------*/
-      public Cinema getCinema() {
-        return cinema;
+      public Cinema getId_cinema() {
+        return id_cinema;
     }
 
-    public FilmeCinema filmeCinema(Cinema cinema) {
-        this.cinema = cinema;
+    public FilmeCinema id_cinema(Cinema id_cinema) {
+        this.id_cinema = id_cinema;
         return this;
     }
 
-    public void setCinema (Cinema cinema) {
-        this.cinema = cinema;
+    public void setid_cinema (Cinema id_cinema) {
+        this.id_cinema = id_cinema;
     }
     /*-------------------------------------------------------*/
     

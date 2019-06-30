@@ -13,15 +13,14 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_id_filme">Id Filme</label>
                     <select class="form-control" id="field_id_filme" name="id_filme" [(ngModel)]="filmeMusica.id_filme" >
-                        <option [ngValue]="null"></option>
                         <option [ngValue]="filmeOption.id === filmeMusica.id_filme?.id ? filmeMusica.id_filme : filmeOption" *ngFor="let filmeOption of filmes; trackBy: trackFilmeById">{{filmeOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_id_musica">Id Musica</label>
                     <select class="form-control" id="field_id_musica" name="id_musica" [(ngModel)]="filmeMusica.id_musica" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="musicaOption.id === filmeMusica.id_musica?.id ? filmeMusica.id_musica : musicaOption" *ngFor="let musicaOption of musicas; trackBy: trackMusicaById">{{musicaOption.id}}</option>
+                        <option [ngValue]="musicaOption.id === filmeMusica.id_musica?.id ? filmeMusica.id_musica : musicaOption" 
+                        *ngFor="let musicaOption of musicas; trackBy: trackMusicaById">{{musicaOption.id}}</option>
                     </select>
                 </div>
 

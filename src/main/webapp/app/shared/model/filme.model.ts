@@ -7,5 +7,5 @@ export interface IFilme {
 }
 
 export class Filme implements IFilme {
-    constructor(public id?: number, public name?: string, public descricao?: string, public ano?: number, public estudio?: string) {}
+    constructor(public id?: number, public nome?: string, public descricao?: string, public ano?: number, public estudio?: string) {}
 }

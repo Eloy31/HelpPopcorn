@@ -25,7 +25,7 @@
             <tbody>
             <tr *ngFor="let filme of filmes ;trackBy: trackId">
                 <td><a [routerLink]="['/filme', filme.id, 'view' ]">{{filme.id}}</a></td>
-                <td>{{filme.name}}</td>
+                <td>{{filme.nome}}</td>
                 <td>{{filme.descricao}}</td>
                 <td>{{filme.ano}}</td>
                 <td>{{filme.estudio}}</td>

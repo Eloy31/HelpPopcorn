@@ -8,15 +8,15 @@
     -->
     <changeSet id="20190629121252-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="filme_id"
+        <addForeignKeyConstraint baseColumnNames="id_filme_id"
                                  baseTableName="filme_musica"
-                                 constraintName="fk_filme_musica_filme_id"
+                                 constraintName="fk_filme_musica_id_filme_id"
                                  referencedColumnNames="id"
                                  referencedTableName="filme"/>
 
-        <addForeignKeyConstraint baseColumnNames="musica_id"
+        <addForeignKeyConstraint baseColumnNames="id_musica_id"
                                         baseTableName="filme_musica"
-                                        constraintName="fk_filme_musica_musica_id"
+                                        constraintName="fk_filme_musica_id_musica_id"
                                         referencedColumnNames="id"
                                         referencedTableName="musica"/>
     </changeSet>

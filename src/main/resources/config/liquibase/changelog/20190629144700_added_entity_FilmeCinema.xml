@@ -22,11 +22,11 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="filme_id" type="bigint">
+            <column name="id_filme_id" type="bigint">
                 <constraints nullable="true"/>
             </column>
 
-            <column name="cinema_id" type="bigint">
+            <column name="id_cinema_id" type="bigint">
                 <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

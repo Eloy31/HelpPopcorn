@@ -35,10 +35,6 @@ public class Musica implements Serializable {
     @Column(name = "ano")
     private Integer ano;
 
-    @OneToMany(mappedBy = "musica")
-    @Cache (usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set <FilmeMusica> filmeMusicas = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     /*-------------------------------Atributos da musica-------------------- */
     public Long getId() {
@@ -89,28 +85,6 @@ public class Musica implements Serializable {
     }
     /*--------------------------------------------------------------------------*/
 
-    /*-----------------------------Filme_musica----------------------------*/
-    public Set<FilmeMusica> getFilmeMusicas() {
-        return filmeMusicas;
-    }
-    public Musica filmeMusicas(Set<FilmeMusica> filmeMusicas) {
-        this.filmeMusicas = filmeMusicas;
-        return this;
-    }
-    public Musica addFilmeMusicas(FilmeMusica filmeMusica) {
-        this.filmeMusicas.add(filmeMusica);
-        filmeMusica.setMusica(this);
-        return this;
-    }
-    public Musica removeFilmeMusica(FilmeMusica filmeMusica) {
-        this.filmeMusicas.remove(filmeMusica);
-        filmeMusica.setMusica(null);
-        return this;
-    }
-    public void setFilmeMusicas(Set<FilmeMusica> filmeMusicas){
-        this.filmeMusicas = filmeMusicas;
-    }
-    /*---------------------------------------------------------------------*/
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

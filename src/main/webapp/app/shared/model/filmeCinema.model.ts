@@ -1,12 +1,9 @@
-import { IFilme } from 'app/shared/model/filme.model';
-import { ICinema } from 'app/shared/model/cinema.model';
-
 export interface IFilmeCinema {
     id?: number;
-    filmes?: IFilme[];
-    cinemas?: ICinema[];
+    id_filme?: number;
+    id_cinema?: number;
 }
 
 export class FilmeCinema implements IFilmeCinema {
-    constructor(public id?: number, public filmes?: IFilme[], public cinemas?: ICinema[]) {}
+    constructor(public id?: number, public id_filme?: number, public id_cinema?: number) {}
 }
