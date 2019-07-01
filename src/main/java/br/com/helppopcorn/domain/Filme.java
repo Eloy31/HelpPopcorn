@@ -38,6 +38,9 @@ public class Filme implements Serializable {
     @Column(name = "estudio")
     private String estudio;
 
+    @Column(name = "url_imagem")
+    private String urlImagem;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     /*----------------------------Atributos do filme---------------------------------- */
     public Long getId() {
@@ -86,6 +89,16 @@ public class Filme implements Serializable {
     public void setEstudio(String estudio) {
         this.estudio = estudio;
     }
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+    public Filme urlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+        return this;
+    }
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
     /*---------------------------------------------------------------------*/
     
 
@@ -120,6 +133,7 @@ public class Filme implements Serializable {
             ", descricao='" + getDescricao() + "'" +
             ", ano=" + getAno() +
             ", estudio='" + getEstudio() + "'" +
+            ", Url Imagem='" + getUrlImagem() + "'" +
             "}";
     }
 }

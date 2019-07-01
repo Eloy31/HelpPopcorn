@@ -38,6 +38,9 @@ public class Cinema implements Serializable {
     @Column(name = "qtd_sala")
     private Integer qtdSala;
 
+    @Column(name = "url_imagem")
+    private String urlImagem;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -99,6 +102,18 @@ public class Cinema implements Serializable {
         this.qtdSala = qtdSala;
     }
 
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public Cinema urlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+        return this;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -129,6 +144,7 @@ public class Cinema implements Serializable {
             ", cidade='" + getCidade() + "'" +
             ", bairro='" + getBairro() + "'" +
             ", quantidadeSala='" + getQtdsala() + "'" +
+            ", Url Imagem='" + getUrlImagem() + "'" +
             "}";
     }
 }

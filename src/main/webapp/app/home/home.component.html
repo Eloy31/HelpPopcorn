@@ -15,7 +15,7 @@
                     <th><span>Descricao</span></fa-icon></th>
                     <th><span>Ano</span></th>
                     <th><span>Estudio</span></th>
-                    <th></th>
+                    <th>Imagem</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,34 +24,10 @@
                         <td>{{filme.descricao}}</td>
                         <td>{{filme.ano}}</td>
                         <td>{{filme.estudio}}</td>
-                        <td class="text-right">
-                            <div class="btn-group flex-btn-group-container">
-                                <button type="submit"
-                                        [routerLink]="['/filme', filme.id, 'view' ]"
-                                        class="btn btn-info btn-sm">
-                                    <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline">View</span>
-                                </button>
-                                <button type="submit"
-                                        [routerLink]="['/filme', filme.id, 'edit']"
-                                        class="btn btn-primary btn-sm">
-                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                                    <span class="d-none d-md-inline">Edit</span>
-                                </button>
-                                <button type="submit"
-                                        [routerLink]="['/', 'filme', { outlets: { popup: filme.id + '/delete'} }]"
-                                        replaceUrl="true"
-                                        queryParamsHandling="merge"
-                                        class="btn btn-danger btn-sm">
-                                    <fa-icon [icon]="'times'"></fa-icon>
-                                    <span class="d-none d-md-inline">Delete</span>
-                                </button>
-                            </div>
-                        </td>
+                        <td><img [src]="filme.urlImagem"/></td>
                     </tr>
                     </tbody>
                 </table>
-            </div>
 </div>
 
 <div *ngIf="cinema">
@@ -100,5 +76,4 @@
                     </tbody>
                 </table>
             </div>
-            <img src="https://www.nicepng.com/png/detail/419-4194626_s-pipoca-imagens-de-pipoca-png.png" alt="teste">
 </div>
