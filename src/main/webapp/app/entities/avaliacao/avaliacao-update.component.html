@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-avaliacao-heading">Create or edit a Avaliacao</h2>
+            <h2 id="jhi-avaliacao-heading">Avaliar o filme escolhido</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!avaliacao.id">
@@ -29,6 +29,12 @@
                     <input type="number" class="form-control" name="nota" id="field_nota"
                         [(ngModel)]="avaliacao.nota" />
                 </div>
+
+                <div class="form-group">
+                        <label class="form-control-label" for="ator">Melhor ator</label>
+                        <input type="text" class="form-control" name="ator" id="ator"
+                            [(ngModel)]="avaliacao.melAtor" />
+                    </div>
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_id_filme">Id Filme</label>

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     filmes: IFilme[];
     cinemas: ICinema[];
     filme: boolean;
-    cinema: boolean;
+    teste: boolean;
 
     constructor(
         private accountService: AccountService,
@@ -37,12 +37,12 @@ export class HomeComponent implements OnInit {
         });
         this.registerAuthenticationSuccess();
         this.filme = false;
-        this.cinema = false;
+        this.teste = false;
     }
 
     setFilme() {
         this.filme = true;
-        this.cinema = false;
+        this.teste = false;
 
         this.filmeService
             .query()
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
     }
 
     setCinema() {
-        this.cinema = true;
+        this.teste = true;
         this.filme = false;
 
         this.cinemaService

@@ -35,6 +35,9 @@ public class Avaliacao implements Serializable {
     @Column(name = "email_usuario")
     private String emailUsuario;
 
+    @Column(name = "melator")
+    private String melAtor;
+
     @ManyToOne
     private Filme id_filme;
 
@@ -97,6 +100,19 @@ public class Avaliacao implements Serializable {
 
     public void setNota(Integer nota) {
         this.nota = nota;
+    }
+
+    public String getMelAtor() {
+        return melAtor;
+    }
+
+    public Avaliacao melAtor(String melAtor) {
+        this.melAtor = melAtor;
+        return this;
+    }
+
+    public void setMelAtor(String melAtor) {
+        this.melAtor = melAtor;
     }
 
     public Filme getId_filme() {

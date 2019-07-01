@@ -5,6 +5,7 @@ export interface IAvaliacao {
     emailUssuario?: string;
     nota?: number;
     id_filme?: number;
+    melAtor?: string;
 }
 
 export class Avaliacao implements IAvaliacao {
@@ -14,6 +15,7 @@ export class Avaliacao implements IAvaliacao {
         public nomeUsuario?: string,
         public emailUssuario?: string,
         public nota?: number,
-        public id_filme?: number
+        public id_filme?: number,
+        public melAtor?: string
     ) {}
 }
