@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'filme-musica',
                 loadChildren: './filme-musica/filme-musica.module#HelpPopcornFilmeMusicaModule'
+            },
+            {
+                path: 'filme-cinema',
+                loadChildren: './filme-cinema/filme-cinema.module#HelpPopcornFilmeCinemaModule'
             }
         ])
     ],
